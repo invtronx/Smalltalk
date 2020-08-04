@@ -1,0 +1,32 @@
+<div class="chunk">
+  <div class="headline">
+    <a
+      class="headline__author-name"
+      [routerLink]="['/users', chunk.author.username]"
+      >{{ chunk.author.name }}</a
+    >
+    <div>
+      <small class="headline__date">{{
+        chunk.createdAt | date: "MMM d, y h:mm a"
+      }}</small
+      >&nbsp;
+      <a [routerLink]="['chunks', chunk.slug]">View</a>
+    </div>
+  </div>
+
+  <div class="chunk__modifiers" *ngIf="!shortForm && canModify">
+    <button (click)="editChunk()">Edit</button>
+    <button (click)="deleteChunk()">Delete</button>
+  </div>
+
+  <div class="chunk__body">{{ chunk.content }}</div>
+
+  <div class="chunk__sharedSource" *ngIf="chunk.sharedSource">
+    <app-chunk [shortForm]="true" [chunk]="chunk.sharedSource"></app-chunk>
+  </div>
+
+  <app-chunk-interactors
+    *ngIf="!shortForm"
+    [chunk]="chunk"
+  ></app-chunk-interactors>
+</div>

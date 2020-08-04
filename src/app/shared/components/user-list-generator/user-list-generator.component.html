@@ -1,0 +1,19 @@
+<div class="generated-users-list">
+  <div class="users-list">
+    <div class="users-list__user" *ngFor="let user of usersList$ | async">
+      <div
+        class="users-list__self-remover"
+        *ngIf="user.username !== currentUser.username || !ignoreSelf"
+      >
+        <app-user [user]="user"></app-user>
+      </div>
+    </div>
+  </div>
+
+  <div class="users-list__footer" *ngIf="usersListExhausted$ | async">
+    Users exhausted.
+  </div>
+  <button (click)="bufferUsersList()" *ngIf="!(usersListExhausted$ | async)">
+    Next
+  </button>
+</div>

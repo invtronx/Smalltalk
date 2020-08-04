@@ -1,0 +1,20 @@
+<div class="compose">
+  <h3>Compose a chunk</h3>
+  <form
+    [formGroup]="composeForm"
+    autocomplete="off"
+    (ngSubmit)="handleChunkComposure()"
+  >
+    <div>
+      <textarea formControlName="content" rows="3" cols="48"></textarea>
+      <div class="sharedSource" *ngIf="sharedSource">
+        <p>@Sharing chunk thread {{ sharedSource.slug }}</p>
+        <app-chunk [shortForm]="true" [chunk]="sharedSource"></app-chunk>
+      </div>
+    </div>
+    <button [disabled]="composeForm.invalid">
+      <span *ngIf="editingChunk">Edit</span>
+      <span *ngIf="!editingChunk">Compose</span>
+    </button>
+  </form>
+</div>

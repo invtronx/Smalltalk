@@ -1,0 +1,16 @@
+<div class="generated-feed">
+  <div class="feed__chunk" *ngFor="let chunk of feed$ | async">
+    <app-chunk
+      [chunk]="chunk"
+      [shortForm]="false"
+      [canModify]="currentUser.username === chunk.author.username"
+    ></app-chunk>
+  </div>
+
+  <div class="feed__footer" *ngIf="feedExhausted$ | async">
+    Out of content. No more chunks to display.
+  </div>
+  <button (click)="bufferFeed()" *ngIf="!(feedExhausted$ | async)">
+    Next
+  </button>
+</div>

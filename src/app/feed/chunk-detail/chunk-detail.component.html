@@ -1,0 +1,27 @@
+<div class="root">
+  <div class="chunk-content">
+    <app-chunk [chunk]="chunk" [shortForm]="false"></app-chunk>
+  </div>
+  <div class="chunk-comments">
+    <h3>Comments</h3>
+    <p *ngFor="let comment of comments">
+      <app-comment
+        [comment]="comment"
+        [canModify]="currentUser.username === comment.author.username"
+        [chunkSlug]="chunk.slug"
+        (isDeleted)="reloadChunkDetails()"
+      ></app-comment>
+    </p>
+    <p *ngIf="comments.length === 0">There are no comments on this post.</p>
+  </div>
+  <div class="chunk-comment-compose">
+    <form [formGroup]="commentForm" (ngSubmit)="handleCommentForm()">
+      <input
+        formControlName="content"
+        id="commentContent"
+        placeholder="Add your comment"
+      />
+      <button type="submit">Comment</button>
+    </form>
+  </div>
+</div>

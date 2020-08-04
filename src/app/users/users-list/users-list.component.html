@@ -1,0 +1,14 @@
+<div class="root">
+  <div class="headline">
+    <h2 class="headline__heading">Users you may know</h2>
+  </div>
+
+  <div class="users-list">
+    <input [formControl]="userSearch" placeholder="Search users by name" />
+    <app-user-list-generator
+      [currentUser]="currentUser"
+      [endpoint]="endpoint"
+      [httpOptions]="httpOptions"
+    ></app-user-list-generator>
+  </div>
+</div>

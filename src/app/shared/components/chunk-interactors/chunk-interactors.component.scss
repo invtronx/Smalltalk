@@ -1,0 +1,21 @@
+.interactors {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+
+  button {
+    background-color: transparent;
+    border: 1px solid blue;
+    color: black;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+  }
+  .colored {
+    background-color: blue;
+    color: white;
+  }
+}

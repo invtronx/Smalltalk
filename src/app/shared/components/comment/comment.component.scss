@@ -1,0 +1,14 @@
+.comment {
+  margin: 4px;
+  padding: 4px;
+  background-color: #eee;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  &__headline {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

@@ -1,0 +1,11 @@
+<div class="root">
+  <h2>Notifications</h2>
+  <div class="notifications">
+    <div
+      class="notification"
+      *ngFor="let notification of notifications$ | async"
+    >
+      <app-notification [notification]="notification"></app-notification>
+    </div>
+  </div>
+</div>

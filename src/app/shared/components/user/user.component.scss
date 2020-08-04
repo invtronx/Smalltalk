@@ -1,0 +1,22 @@
+.user {
+  margin: 4px;
+  padding: 4px;
+  background-color: #ddd;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  &-essentials {
+    line-height: 6px;
+  }
+  &-essentials:hover {
+    cursor: pointer;
+    // TODO: Implement a popup that shows user details when hovering
+  }
+  &-essentials:hover &-essentials__name {
+    text-decoration: underline;
+  }
+}

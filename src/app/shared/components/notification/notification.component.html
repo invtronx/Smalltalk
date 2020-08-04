@@ -1,0 +1,8 @@
+<div class="notification-container">
+  <a [routerLink]="[notification.redirectTo || './']">
+    <div class="notification">
+      <span>{{ parseNotificationObject }}</span>
+      <small>{{ formatNotificationTime }}</small>
+    </div>
+  </a>
+</div>

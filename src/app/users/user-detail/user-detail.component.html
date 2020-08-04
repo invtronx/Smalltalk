@@ -1,0 +1,53 @@
+<div class="root">
+  <div class="user-detail__headlines">
+    <div class="user-detail__headlines-essentials">
+      <h3>{{ user.name }}</h3>
+      <p>{{ user.bio }}</p>
+    </div>
+
+    <div class="user-detail__headlines-info">
+      <ul>
+        <li>
+          <a [routerLink]="['followers']"
+            ><strong>Followers:&nbsp;</strong>{{ user.followers }}</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['following']"
+            ><strong>Following:&nbsp;</strong>{{ user.following }}</a
+          >
+        </li>
+        <li><strong>Gender:&nbsp;</strong>{{ user.gender }}</li>
+        <li>
+          <strong>Birthday:&nbsp;</strong
+          >{{ user.birthday | date: "MMM d, y h:mm a" }}
+        </li>
+        <li><strong>Email:&nbsp;</strong>{{ user.email }}</li>
+        <li>
+          <strong>Joined Chunk on:&nbsp;</strong
+          >{{ user.joinedOn | date: "MMM d, y h:mm a" }}
+        </li>
+      </ul>
+    </div>
+
+    <div
+      class="user-detail__interactors"
+      *ngIf="currentUser.username !== user.username"
+    >
+      <app-user-interactor [user]="user"></app-user-interactor>
+    </div>
+
+    <div class="user-detail__modifiers" *ngIf="canModify">
+      <p>Granted modification access</p>
+      <a [routerLink]="['/users/me/edit']">Edit my information</a>
+    </div>
+  </div>
+
+  <div class="user-detail__chunks">
+    <app-feed-generator
+      [currentUser]="currentUser"
+      [endpoint]="endpoint"
+      [httpOptions]="httpOptions"
+    ></app-feed-generator>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="root">
+  <h3>Users who liked this post</h3>
+  <div class="liked-users-list">
+    <app-user-list-generator
+      [currentUser]="currentUser"
+      [endpoint]="endpoint"
+      [httpOptions]="httpOptions"
+      [ignoreSelf]="false"
+    ></app-user-list-generator>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.chunk {
+  background-color: #eee;
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  &__sharedSource {
+    border: 1px solid gray;
+    border-radius: 6px;
+  }
+}
+.headline {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}

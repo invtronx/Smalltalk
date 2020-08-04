@@ -1,0 +1,8 @@
+<div class="root">
+  <h3>{{ user.name }} is following</h3>
+  <app-user-list-generator
+    [currentUser]="user"
+    [endpoint]="endpoint"
+    [httpOptions]="httpOptions"
+  ></app-user-list-generator>
+</div>

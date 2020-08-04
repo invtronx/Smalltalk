@@ -1,0 +1,9 @@
+.links {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  a {
+    margin: auto 12px;
+  }
+}

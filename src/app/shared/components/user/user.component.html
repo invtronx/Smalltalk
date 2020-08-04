@@ -1,0 +1,11 @@
+<div class="user">
+  <div class="user-essentials" [routerLink]="['/users', user.username]">
+    <p class="user-essentials__name">
+      <strong>{{ user.name }}</strong>
+    </p>
+    <small>{{ user.followers }} followers</small>
+  </div>
+  <div class="user__interactors">
+    <app-user-interactor [user]="user"></app-user-interactor>
+  </div>
+</div>

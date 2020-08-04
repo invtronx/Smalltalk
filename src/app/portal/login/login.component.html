@@ -1,0 +1,22 @@
+<div class="root">
+  <h2>Login</h2>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="handleLoginForm()"
+    autocomplete="off"
+  >
+    <div>
+      <label for="loginEmail">Email</label>
+      <input formControlName="email" id="loginEmail" type="email" />
+      <p>{{ emailErrorText }}</p>
+    </div>
+    <div>
+      <label for="loginPassword">Password</label>
+      <input formControlName="password" id="loginPassword" type="password" />
+      <p>{{ passwordErrorText }}</p>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid || loginDisabled">
+      Login
+    </button>
+  </form>
+</div>

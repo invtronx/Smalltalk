@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div class="interactors">
+    <button [class]="likeButtonClasses" (click)="handleLike()">
+      Like - {{ likeCount }}
+    </button>
+    <button class="interactors__comment" (click)="handleComment()">
+      Comment - {{ chunk.commentCount }}
+    </button>
+    <button class="interactors__share" (click)="handleShare()">Share</button>
+  </div>
+  <div class="extras">
+    <a [routerLink]="['/chunks', chunk.slug, 'like']">View Liked Users</a>
+  </div>
+</div>

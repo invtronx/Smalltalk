@@ -1,0 +1,16 @@
+.user-interactors {
+  button {
+    background-color: transparent;
+    border: 1px solid blue;
+    color: black;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+  }
+  .colored {
+    background-color: blue;
+    color: white;
+  }
+}

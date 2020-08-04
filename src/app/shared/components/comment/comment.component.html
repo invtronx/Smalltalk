@@ -1,0 +1,12 @@
+<div class="comment">
+  <div class="comment__headline">
+    <a [routerLink]="['/users', comment.author.username]">{{
+      comment.author.name
+    }}</a>
+    <span>{{ comment.createdAt | date: "MMM d, y h:mm a" }}</span>
+  </div>
+  <div class="comment__content">{{ comment.content }}</div>
+  <div class="comment__interactors" *ngIf="canModify">
+    <button (click)="deleteComment()">Delete</button>
+  </div>
+</div>

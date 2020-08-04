@@ -1,0 +1,15 @@
+<div class="root">
+  <div class="headline">
+    <h2 class="headline__heading">Feed</h2>
+    <a [routerLink]="['/compose']">Compose</a>
+  </div>
+
+  <div class="feed">
+    <input [formControl]="tagSearch" placeholder="Search for tags" />
+    <app-feed-generator
+      [currentUser]="currentUser"
+      [endpoint]="endpoint"
+      [httpOptions]="httpOptions"
+    ></app-feed-generator>
+  </div>
+</div>
