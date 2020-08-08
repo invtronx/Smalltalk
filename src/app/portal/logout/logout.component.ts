@@ -12,6 +12,6 @@ export class LogoutComponent {
 
   handleLogout(): void {
     this.jwt.clearToken();
-    this.router.navigate(['/portal']);
+    this.router.navigate(['/portal/login']);
   }
 }

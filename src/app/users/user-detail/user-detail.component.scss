@@ -1,0 +1,40 @@
+.essentials {
+  display: block;
+  text-align: center;
+  max-width: 480px;
+  margin: 8px auto;
+}
+.extra-info {
+  font-size: 1.1em;
+  a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    margin: 2px 0;
+    span {
+      position: relative;
+      bottom: 4px;
+    }
+  }
+}
+.icon {
+  margin-right: 8px;
+}
+.chunks {
+  margin: 24px 0;
+  h3 {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-left: 24px;
+  }
+}
+.modifiers {
+  margin-left: 24px;
+}

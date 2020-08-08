@@ -1,22 +1,35 @@
-.user {
-  margin: 4px;
-  padding: 4px;
-  background-color: #ddd;
-  border: 1px solid transparent;
-  border-radius: 6px;
+.card {
+  border-radius: 0;
+  border-top: 1px solid gainsboro;
+  padding: 8px 16px 0px;
+}
+.header {
+  color: #888;
+}
+.name {
+  color: black;
+  font-size: 0.8em;
+  text-decoration: none;
+  margin-left: -4px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.content {
+  margin-top: -8px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  align-items: center;
-
-  &-essentials {
-    line-height: 6px;
+  p {
+    font-weight: lighter;
+    margin-left: 12px;
   }
-  &-essentials:hover {
-    cursor: pointer;
-    // TODO: Implement a popup that shows user details when hovering
+  .btn-div {
+    position: relative;
+    bottom: 20px;
   }
-  &-essentials:hover &-essentials__name {
-    text-decoration: underline;
-  }
+}
+.separator {
+  font-weight: bolder;
+  margin: 0 8px 0 -2px;
 }

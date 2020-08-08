@@ -18,6 +18,6 @@ export class AuthGuard implements CanLoad {
       return true;
     }
     this.auth.redirectUrl = url;
-    return this.router.parseUrl('/portal');
+    return this.router.parseUrl('/portal/signup');
   }
 }

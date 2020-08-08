@@ -1,16 +1,18 @@
+@import "variables";
+
 .user-interactors {
   button {
     background-color: transparent;
-    border: 1px solid blue;
+    min-width: 90px;
     color: black;
   }
   button:hover {
     cursor: pointer;
-    background-color: blue;
+    background-color: $primary-color;
     color: white;
   }
   .colored {
-    background-color: blue;
+    background-color: $primary-color;
     color: white;
   }
 }

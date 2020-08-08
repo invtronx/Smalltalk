@@ -13,6 +13,19 @@ import { UserListGeneratorComponent } from './components/user-list-generator/use
 import { UserInteractorComponent } from './components/user-interactor/user-interactor.component';
 import { NotificationComponent } from './components/notification/notification.component';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { BackbarComponent } from './components/backbar/backbar.component';
+
 @NgModule({
   declarations: [
     ChunkComponent,
@@ -23,6 +36,7 @@ import { NotificationComponent } from './components/notification/notification.co
     UserListGeneratorComponent,
     UserInteractorComponent,
     NotificationComponent,
+    BackbarComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +44,17 @@ import { NotificationComponent } from './components/notification/notification.co
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatMenuModule,
   ],
   exports: [
     CommonModule,
@@ -40,11 +65,23 @@ import { NotificationComponent } from './components/notification/notification.co
     UserComponent,
     ChunkComponent,
     CommentComponent,
+    BackbarComponent,
     ChunkInteractorsComponent,
     FeedGeneratorComponent,
     UserListGeneratorComponent,
     UserInteractorComponent,
     NotificationComponent,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatMenuModule,
   ],
 })
 export class SharedModule {}

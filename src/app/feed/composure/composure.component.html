@@ -1,20 +1,48 @@
 <div class="compose">
-  <h3>Compose a chunk</h3>
-  <form
-    [formGroup]="composeForm"
-    autocomplete="off"
-    (ngSubmit)="handleChunkComposure()"
-  >
-    <div>
-      <textarea formControlName="content" rows="3" cols="48"></textarea>
-      <div class="sharedSource" *ngIf="sharedSource">
-        <p>@Sharing chunk thread {{ sharedSource.slug }}</p>
-        <app-chunk [shortForm]="true" [chunk]="sharedSource"></app-chunk>
+  <app-backbar [caption]="sharedSource ? 'Share' : 'Compose'"></app-backbar>
+
+  <mat-card>
+    <mat-card-header class="chunk-header">
+      <mat-card-title class="chunk-header__title">
+        <p class="chunk__author">{{ currentUser.name }}</p>
+      </mat-card-title>
+      <mat-card-subtitle class="chunk-header-sub">
+        <div class="chunk-header-sub__head">
+          <span>@{{ currentUser.username }}</span>
+          <span class="chunk-header-sub__date-separator">&#183;</span>
+          <span class="chunk-header-sub__date">Currently writing</span>
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="main-content">
+        <form
+          [formGroup]="composeForm"
+          autocomplete="off"
+          (ngSubmit)="handleChunkComposure()"
+        >
+          <p class="form-field-wrapper">
+            <mat-form-field class="form-field">
+              <textarea
+                matInput
+                formControlName="content"
+                placeholder="What's on your mind?"
+              ></textarea>
+            </mat-form-field>
+          </p>
+          <div *ngIf="sharedSource" class="shared-chunk">
+            <app-chunk [shortForm]="true" [chunk]="sharedSource"></app-chunk>
+          </div>
+          <div class="button-wrapper">
+            <button mat-raised-button class="compose-button" color="primary">
+              <span *ngIf="editingChunk">Edit</span>
+              <span *ngIf="sharedSource && !editingChunk">Share</span>
+              <span *ngIf="!sharedSource && !editingChunk">Compose</span>
+            </button>
+          </div>
+        </form>
       </div>
-    </div>
-    <button [disabled]="composeForm.invalid">
-      <span *ngIf="editingChunk">Edit</span>
-      <span *ngIf="!editingChunk">Compose</span>
-    </button>
-  </form>
+    </mat-card-content>
+  </mat-card>
 </div>

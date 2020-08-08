@@ -1,0 +1,20 @@
+.backbar {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  font-size: 1.2em;
+  padding: 6px 8px;
+
+  button {
+    margin-right: 24px;
+    padding-left: 8px;
+    &:hover {
+      background-color: #eee;
+    }
+  }
+  p {
+    font-weight: bolder;
+    margin: 0;
+  }
+}

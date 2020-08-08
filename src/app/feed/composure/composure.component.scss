@@ -1,0 +1,73 @@
+@import "mixins";
+@import "variables";
+
+a {
+  text-decoration: none;
+}
+.chunk {
+  padding: 8px 8px 2px;
+  border-radius: 0;
+  border-top: 1px solid gainsboro;
+
+  &-header {
+    &-sub {
+      @include d-flex(row, space-between, center);
+      width: 720px;
+      height: 32px;
+      margin-bottom: 8px;
+
+      &__head {
+        display: inline;
+      }
+      &__date {
+        &-separator {
+          margin: 0 8px;
+        }
+      }
+    }
+    &-edit {
+      display: inline;
+      .editButton {
+        border-radius: 64px;
+        bottom: 16px;
+      }
+    }
+  }
+
+  &__author {
+    font-size: 0.8em;
+    color: black;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .main-content {
+    font-size: 1.1em;
+    margin: 0 16px 6px;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+.shared-chunk {
+  margin: 12px 0 16px;
+}
+.form-field-wrapper {
+  text-align: center;
+}
+.form-field {
+  width: 95%;
+  textarea {
+    font-size: 1.1em;
+    line-height: 1.6;
+    height: 8em;
+  }
+}
+.button-wrapper {
+  width: 100%;
+  text-align: right;
+}
+.compose-button {
+  margin: 0 16px;
+}

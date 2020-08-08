@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ApiService } from 'src/app/core/services/api.service';
 import { Chunk } from 'src/app/core/models/chunk';
+import { User } from 'src/app/core/models/user';
 
 @Component({
   selector: 'app-composure',
@@ -12,10 +13,11 @@ import { Chunk } from 'src/app/core/models/chunk';
 })
 export class ComposureComponent implements OnInit {
   composeForm = new FormGroup({
-    content: new FormControl('', [Validators.required]),
+    content: new FormControl('', []),
   });
   sharedSource: Chunk | null;
   editingChunk: Chunk | null;
+  currentUser: User;
 
   constructor(
     private api: ApiService,
@@ -27,6 +29,7 @@ export class ComposureComponent implements OnInit {
     this.route.data.subscribe((data: { resolvedData: any }) => {
       this.sharedSource = data.resolvedData.sharedSource?.chunk || null;
       this.editingChunk = data.resolvedData.chunk?.chunk || null;
+      this.currentUser = data.resolvedData.currentUser.currentUser;
       this.composeForm.setValue({ content: this.editingChunk?.content || '' });
     });
   }

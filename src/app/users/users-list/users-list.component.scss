@@ -1,0 +1,21 @@
+.headline {
+  margin-bottom: -12px;
+}
+.headline__heading {
+  margin: 0;
+  padding: 6px 24px;
+}
+.input-wrapper {
+  display: flex;
+}
+.input-form-field {
+  flex-grow: 1;
+  padding: 4px 16px 0;
+  font-size: 1.1em;
+  margin-bottom: -8px;
+}
+.search-icon {
+  position: relative;
+  top: 4px;
+  margin-right: 8px;
+}

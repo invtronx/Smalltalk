@@ -1,22 +1,62 @@
-<div class="root">
-  <h2>Login</h2>
+<div class="login">
+  <h1>Login</h1>
   <form
     [formGroup]="loginForm"
     (ngSubmit)="handleLoginForm()"
     autocomplete="off"
+    class="login-form"
   >
-    <div>
-      <label for="loginEmail">Email</label>
-      <input formControlName="email" id="loginEmail" type="email" />
-      <p>{{ emailErrorText }}</p>
-    </div>
-    <div>
-      <label for="loginPassword">Password</label>
-      <input formControlName="password" id="loginPassword" type="password" />
-      <p>{{ passwordErrorText }}</p>
-    </div>
-    <button type="submit" [disabled]="loginForm.invalid || loginDisabled">
+    <p class="login-form__elem">
+      <mat-form-field appearance="outline" class="login-form__elem">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+        <mat-error *ngIf="loginForm.get('email').hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="emailErrorMessage">{{ emailErrorMessage }}</mat-error>
+      </mat-form-field>
+    </p>
+    <p class="login-form__elem">
+      <mat-form-field appearance="outline" class="login-form__elem">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          [type]="hidePassword ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          class="visibility-button"
+          (click)="hidePassword = !hidePassword"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword"
+          type="button"
+        >
+          <mat-icon>{{
+            hidePassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.get('password').hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="passwordErrorMessage">{{
+          passwordErrorMessage
+        }}</mat-error>
+      </mat-form-field>
+    </p>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="loginForm.invalid || loginDisabled"
+    >
       Login
     </button>
   </form>
+  <div class="login-redirect">
+    <a [routerLink]="['/portal/signup']" class="login-redirect__link"
+      >Don't have an account?</a
+    >
+  </div>
 </div>

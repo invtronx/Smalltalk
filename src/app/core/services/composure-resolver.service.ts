@@ -20,11 +20,13 @@ export class ComposureResolverService implements Resolve<any> {
     const chunkSlug = route.queryParamMap.get('currentSlug') || null;
     return zip(
       sharedSourceSlug ? this.api.get(`chunks/${sharedSourceSlug}`) : of(null),
-      chunkSlug ? this.api.get(`chunks/${chunkSlug}`) : of(null)
+      chunkSlug ? this.api.get(`chunks/${chunkSlug}`) : of(null),
+      this.api.get('users/me')
     ).pipe(
-      map(([sharedSource, chunk]) => ({
+      map(([sharedSource, chunk, currentUser]) => ({
         sharedSource,
         chunk,
+        currentUser,
       }))
     );
   }

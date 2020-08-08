@@ -1,45 +1,179 @@
-<div class="root">
-  <h2>Signup</h2>
+<div class="signup">
+  <div class="signup-header">
+    <h1>Create an account</h1>
+    <p>It's simple and easy.</p>
+  </div>
   <form
     [formGroup]="signupForm"
     (ngSubmit)="handleSignUpForm()"
     autocomplete="off"
+    class="signup-form"
   >
-    <div>
-      <label for="name">Name</label>
-      <input formControlName="name" id="name" />
-    </div>
-    <div>
-      <label for="email">Email</label>
-      <input formControlName="email" id="email" type="email" />
-      <p>{{ emailErrorText }}</p>
-    </div>
-    <div>
-      <label for="password">Password</label>
-      <input formControlName="password" id="password" type="password" />
-    </div>
-    <div>
-      <input formControlName="checked" id="checked" type="checkbox" />
-      <label for="checked">I have double-checked my password.</label>
-    </div>
-    <div>
-      <label for="birthday">Birthday</label>
-      <input formControlName="birthday" id="birthday" type="date" />
-    </div>
-    <div>
-      <label for="gender">Gender</label>
-      <select type="select" formControlName="gender" id="gender">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Unspecified">Choose not to specify</option>
-      </select>
-    </div>
-    <div>
-      <label for="bio">Bio</label>
-      <textarea id="bio" formControlName="bio"></textarea>
-    </div>
-    <button type="submit" [disabled]="signupForm.invalid || signupDisabled">
+    <table>
+      <tr>
+        <td>
+          <p class="signup-form__elem">
+            <mat-form-field appearance="outline" class="signup-form__elem">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" />
+              <mat-error *ngIf="signupForm.get('name').hasError('required')">
+                Please enter your name
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  signupForm.get('name').hasError('minLength') ||
+                  signupForm.get('name').hasError('maxLength')
+                "
+              >
+                Names should be between 3 and 16 characters.
+              </mat-error>
+            </mat-form-field>
+          </p>
+        </td>
+        <td>
+          <p class="signup-form__elem">
+            <mat-form-field appearance="outline" class="signup-form__elem">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" type="email" />
+              <mat-error *ngIf="signupForm.get('email').hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="signupForm.get('email').hasError('email')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailErrorMessage">{{
+                emailErrorMessage
+              }}</mat-error>
+            </mat-form-field>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="signup-form__elem">
+            <mat-form-field appearance="outline" class="signup-form__elem">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                formControlName="password"
+                [type]="hidePassword ? 'password' : 'text'"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                class="visibility-button"
+                (click)="hidePassword = !hidePassword"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hidePassword"
+                type="button"
+              >
+                <mat-icon>{{
+                  hidePassword ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+              <mat-error
+                *ngIf="signupForm.get('password').hasError('required')"
+              >
+                Password is <strong>required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  signupForm.get('password').hasError('minLength') ||
+                  signupForm.get('password').hasError('maxLength')
+                "
+              >
+                Passwords should be between 7 and 16 characters
+              </mat-error>
+            </mat-form-field>
+          </p>
+        </td>
+        <td>
+          <p class="signup-form__elem">
+            <mat-form-field appearance="outline" class="signup-form__elem">
+              <mat-label>Password Confirmation</mat-label>
+              <input
+                matInput
+                formControlName="passwordConfirmation"
+                [type]="hidePassword ? 'password' : 'text'"
+              />
+              <mat-error
+                *ngIf="signupForm.get('password').hasError('required')"
+              >
+                Please confirm your password
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  signupForm.errors?.unmatchedPasswords &&
+                  (signupForm.get('passwordConfirmation').dirty ||
+                    signupForm.get('passwordConfirmation').touched)
+                "
+              >
+                Passwords should <strong>match</strong>
+              </mat-error>
+            </mat-form-field>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="signup-form__elem">
+            <mat-form-field appearance="outline" class="signup-form__elem">
+              <mat-label>Birthday</mat-label>
+              <input
+                matInput
+                [matDatepicker]="birthdayPicker"
+                formControlName="birthday"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="birthdayPicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #birthdayPicker></mat-datepicker>
+            </mat-form-field>
+          </p>
+        </td>
+        <td>
+          <p class="signup-form__elem">
+            <mat-form-field appearance="outline" class="signup-form__elem">
+              <mat-label>Gender</mat-label>
+              <mat-select type="select" formControlName="gender" id="gender">
+                <mat-option value="Male">Male</mat-option>
+                <mat-option value="Female">Female</mat-option>
+                <mat-option value="Unspecified"
+                  >Choose not to specify</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </p>
+        </td>
+      </tr>
+    </table>
+    <p class="signup-form__elem">
+      <mat-form-field
+        appearance="outline"
+        class="signup-form__elem signup-form__bio"
+      >
+        <mat-label>Bio</mat-label>
+        <textarea
+          matInput
+          class="textarea"
+          formControlName="bio"
+          rows="6"
+        ></textarea>
+      </mat-form-field>
+    </p>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="signupForm.invalid || signupDisabled"
+    >
       Sign up
     </button>
   </form>
+  <div class="signup-redirect">
+    <a [routerLink]="['/portal/login']" class="signup-redirect__link"
+      >Already have an account?</a
+    >
+  </div>
 </div>

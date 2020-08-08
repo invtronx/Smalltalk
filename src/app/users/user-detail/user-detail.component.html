@@ -1,49 +1,70 @@
-<div class="root">
-  <div class="user-detail__headlines">
-    <div class="user-detail__headlines-essentials">
-      <h3>{{ user.name }}</h3>
+<div class="wrapper">
+  <app-backbar [caption]="'Details'"></app-backbar>
+  <div class="head">
+    <div class="essentials">
+      <h1>{{ user.name }}</h1>
       <p>{{ user.bio }}</p>
+      <div class="interactors" *ngIf="currentUser.username !== user.username">
+        <app-user-interactor [user]="user"></app-user-interactor>
+      </div>
     </div>
 
-    <div class="user-detail__headlines-info">
+    <div class="extra-info">
       <ul>
         <li>
-          <a [routerLink]="['followers']"
-            ><strong>Followers:&nbsp;</strong>{{ user.followers }}</a
+          <a [routerLink]="['followers']">
+            <mat-icon class="icon">favorite</mat-icon>
+            <span
+              >Followers:&nbsp;<strong>{{ user.followers }}</strong></span
+            ></a
           >
         </li>
         <li>
-          <a [routerLink]="['following']"
-            ><strong>Following:&nbsp;</strong>{{ user.following }}</a
+          <a [routerLink]="['following']">
+            <mat-icon class="icon">favorite_border</mat-icon>
+            <span
+              >Following:&nbsp;<strong>{{ user.following }}</strong></span
+            ></a
           >
         </li>
-        <li><strong>Gender:&nbsp;</strong>{{ user.gender }}</li>
         <li>
-          <strong>Birthday:&nbsp;</strong
-          >{{ user.birthday | date: "MMM d, y h:mm a" }}
+          <mat-icon class="icon">face</mat-icon>
+          <span
+            >Gender:&nbsp;<strong>{{ user.gender }}</strong></span
+          >
         </li>
-        <li><strong>Email:&nbsp;</strong>{{ user.email }}</li>
         <li>
-          <strong>Joined Chunk on:&nbsp;</strong
-          >{{ user.joinedOn | date: "MMM d, y h:mm a" }}
+          <mat-icon class="icon">cake</mat-icon>
+          <span
+            >Birthday:&nbsp;<strong>{{
+              user.birthday | date: "MMMM d, y"
+            }}</strong></span
+          >
+        </li>
+        <li>
+          <mat-icon class="icon">email</mat-icon>
+          <span
+            >Email:&nbsp;<strong>{{ user.email }}</strong></span
+          >
+        </li>
+        <li>
+          <mat-icon class="icon">loyalty</mat-icon>
+          <span
+            >Joined Chunk on:&nbsp;<strong>{{
+              user.joinedOn | date: "MMM d, y h:mm a"
+            }}</strong></span
+          >
         </li>
       </ul>
     </div>
 
-    <div
-      class="user-detail__interactors"
-      *ngIf="currentUser.username !== user.username"
-    >
-      <app-user-interactor [user]="user"></app-user-interactor>
-    </div>
-
-    <div class="user-detail__modifiers" *ngIf="canModify">
-      <p>Granted modification access</p>
-      <a [routerLink]="['/users/me/edit']">Edit my information</a>
+    <div class="modifiers" *ngIf="canModify">
+      <a mat-button [routerLink]="['/users/me/edit']">Edit my information</a>
     </div>
   </div>
 
-  <div class="user-detail__chunks">
+  <div class="chunks">
+    <h3>{{ user.name }}'s Posts</h3>
     <app-feed-generator
       [currentUser]="currentUser"
       [endpoint]="endpoint"

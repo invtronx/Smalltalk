@@ -1,12 +1,20 @@
+.card {
+  border-top: 1px solid gainsboro;
+  border-radius: 0;
+  padding: 8px 16px;
+  &:hover {
+    background-color: #eee;
+  }
+}
 .notification {
-  background-color: #ddd;
-  margin: 4px;
-  padding: 4px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+
+  font-weight: lighter;
+}
+.link-wrapper {
+  text-decoration: none;
+  color: black;
 }

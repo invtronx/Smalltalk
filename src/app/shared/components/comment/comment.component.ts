@@ -28,4 +28,27 @@ export class CommentComponent {
       });
     this.isDeleted.emit(true);
   }
+
+  get formatCommentCreationDate(): string {
+    const dateObject: any = new Date(this.comment.createdAt);
+    const now: any = new Date();
+    const secondsElapsed: number = (now - dateObject) / 1000;
+
+    const daysElapsed: number = Math.floor(secondsElapsed / 86400);
+    const hoursElapsed: number = Math.round(secondsElapsed / 3600);
+    const minutesElapsed: number = Math.round(secondsElapsed / 60);
+    const monthsElapsed: number = Math.round(daysElapsed / 30);
+
+    if (monthsElapsed > 0) {
+      return `${monthsElapsed}mo`;
+    } else if (daysElapsed > 0) {
+      return `${daysElapsed}d`;
+    } else if (hoursElapsed > 0) {
+      return `${hoursElapsed}h`;
+    } else if (minutesElapsed > 1) {
+      return `${minutesElapsed}m`;
+    } else {
+      return 'Just now';
+    }
+  }
 }

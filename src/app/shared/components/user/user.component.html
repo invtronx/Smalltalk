@@ -1,11 +1,23 @@
 <div class="user">
-  <div class="user-essentials" [routerLink]="['/users', user.username]">
-    <p class="user-essentials__name">
-      <strong>{{ user.name }}</strong>
-    </p>
-    <small>{{ user.followers }} followers</small>
-  </div>
-  <div class="user__interactors">
-    <app-user-interactor [user]="user"></app-user-interactor>
-  </div>
+  <mat-card class="card">
+    <mat-card-header class="header">
+      <mat-card-title>
+        <a class="name" [routerLink]="['/users', user.username]">
+          {{ user.name }}
+        </a>
+      </mat-card-title>
+      <span class="separator">&#183;</span>
+      <span>{{ user.followers }} followers</span>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <p>
+        {{
+          user.bio || "This user prefers to keep an air of mystery around self."
+        }}
+      </p>
+      <div class="btn-div">
+        <app-user-interactor [user]="user"></app-user-interactor>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

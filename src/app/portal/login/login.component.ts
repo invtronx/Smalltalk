@@ -10,12 +10,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    email: new FormControl(null, [Validators.required, Validators.email]),
+    email: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [Validators.required]),
   });
 
-  emailErrorText: string;
-  passwordErrorText: string;
+  emailErrorMessage: string;
+  passwordErrorMessage: string;
+  hidePassword: boolean = true;
   loginDisabled: boolean = false;
 
   constructor(private auth: AuthService, private router: Router) {}
@@ -28,10 +29,10 @@ export class LoginComponent {
         this.router.navigate([toUrl]);
       },
       error: (err) => {
-        this.emailErrorText = err.errors.hasOwnProperty('email')
+        this.emailErrorMessage = err.errors.hasOwnProperty('email')
           ? err.errors.email
           : '';
-        this.passwordErrorText = err.errors.hasOwnProperty('password')
+        this.passwordErrorMessage = err.errors.hasOwnProperty('password')
           ? err.errors.password
           : '';
         this.loginDisabled = false;

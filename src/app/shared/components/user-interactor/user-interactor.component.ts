@@ -12,7 +12,7 @@ export class UserInteractorComponent implements OnInit {
   @Input() user: User;
 
   followerCount: number;
-  followButtonClasses: Object;
+  followButtonClasses: { colored: boolean; interactors__follow: boolean };
 
   constructor(private api: ApiService) {}
 

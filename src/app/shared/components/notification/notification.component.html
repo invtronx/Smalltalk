@@ -1,8 +1,12 @@
 <div class="notification-container">
-  <a [routerLink]="[notification.redirectTo || './']">
-    <div class="notification">
-      <span>{{ parseNotificationObject }}</span>
-      <small>{{ formatNotificationTime }}</small>
-    </div>
-  </a>
+  <mat-card class="card">
+    <mat-card-content>
+      <a class="link-wrapper" [routerLink]="[notification.redirectTo || './']">
+        <div class="notification">
+          <span>{{ parseNotificationObject }}</span>
+          <small>{{ formatNotificationTime }}</small>
+        </div>
+      </a>
+    </mat-card-content>
+  </mat-card>
 </div>

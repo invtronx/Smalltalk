@@ -7,16 +7,18 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { PortalModule } from './portal/portal.module';
+import { WrapperModule } from './wrapper/wrapper.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
-    CoreModule,
     NoopAnimationsModule,
+    CoreModule,
     SharedModule,
     PortalModule,
+    WrapperModule,
     AppRoutingModule,
   ],
   providers: [],

@@ -19,7 +19,7 @@ export class ChunkDetailComponent implements OnInit {
   currentUser: User;
 
   commentForm = new FormGroup({
-    content: new FormControl('', Validators.required),
+    content: new FormControl(''),
   });
 
   constructor(

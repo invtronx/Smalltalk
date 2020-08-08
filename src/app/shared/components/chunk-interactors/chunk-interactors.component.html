@@ -1,14 +1,23 @@
-<div class="wrapper">
-  <div class="interactors">
-    <button [class]="likeButtonClasses" (click)="handleLike()">
-      Like - {{ likeCount }}
+<div class="interactors">
+  <p [class]="likeButtonClasses">
+    <button mat-icon-button [class]="likeButtonClasses" (click)="handleLike()">
+      <mat-icon>thumb_up</mat-icon>
     </button>
-    <button class="interactors__comment" (click)="handleComment()">
-      Comment - {{ chunk.commentCount }}
+    <span>{{ likeCount }}</span>
+  </p>
+  <p>
+    <button
+      mat-icon-button
+      class="interactors__comment"
+      (click)="handleComment()"
+    >
+      <mat-icon>comment</mat-icon>
     </button>
-    <button class="interactors__share" (click)="handleShare()">Share</button>
-  </div>
-  <div class="extras">
-    <a [routerLink]="['/chunks', chunk.slug, 'like']">View Liked Users</a>
-  </div>
+    <span>{{ chunk.commentCount }}</span>
+  </p>
+  <p>
+    <button mat-icon-button class="interactors__share" (click)="handleShare()">
+      <mat-icon>share</mat-icon>
+    </button>
+  </p>
 </div>

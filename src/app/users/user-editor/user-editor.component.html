@@ -1,31 +1,60 @@
-<div class="root">
-  <h3>Edit my information</h3>
-  <form [formGroup]="editForm" (ngSubmit)="handleEditForm()" autocomplete="off">
+<div class="wrapper">
+  <h2>Edit my information</h2>
+  <form
+    class="form"
+    [formGroup]="editForm"
+    (ngSubmit)="handleEditForm()"
+    autocomplete="off"
+  >
     <div>
-      <label for="name">Name</label>
-      <input formControlName="name" id="name" />
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput />
+      </mat-form-field>
     </div>
     <div>
-      <label for="email">Email</label>
-      <input formControlName="email" id="email" type="email" />
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput type="email" />
+      </mat-form-field>
     </div>
     <div>
-      <label for="birthday">Birthday</label>
-      <input formControlName="birthday" id="birthday" type="date" />
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Birthday</mat-label>
+        <input
+          matInput
+          [matDatepicker]="birthdayPicker"
+          formControlName="birthday"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="birthdayPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #birthdayPicker></mat-datepicker>
+      </mat-form-field>
     </div>
     <div>
-      <label for="gender">Gender</label>
-      <select type="select" formControlName="gender" id="gender">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Unspecified">Choose not to specify</option>
-      </select>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Gender</mat-label>
+        <mat-select type="select" formControlName="gender" id="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Unspecified">Choose not to specify</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div>
-      <label for="bio">Bio</label>
-      <textarea id="bio" formControlName="bio"></textarea>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Bio</mat-label>
+        <textarea class="textarea" formControlName="bio" matInput></textarea>
+      </mat-form-field>
     </div>
-    <button type="submit" [disabled]="editForm.invalid || editDisabled">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="editForm.invalid || editDisabled"
+    >
       Edit
     </button>
   </form>

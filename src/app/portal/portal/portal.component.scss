@@ -1,0 +1,14 @@
+@import "variables";
+@import "mixins";
+
+.portal {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, $primary-color, $light-primary-color);
+
+  &-outlet {
+    position: fixed;
+    top: 20vh;
+    left: 52vw;
+  }
+}

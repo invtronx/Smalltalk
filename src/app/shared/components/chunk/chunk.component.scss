@@ -1,15 +1,51 @@
-.chunk {
-  background-color: #eee;
-  border: 1px solid transparent;
-  border-radius: 8px;
+@import "mixins";
+@import "variables";
 
-  &__sharedSource {
-    border: 1px solid gray;
-    border-radius: 6px;
-  }
+a {
+  text-decoration: none;
 }
-.headline {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+.chunk {
+  padding: 8px 8px 2px;
+  border-radius: 0;
+  border-top: 1px solid gainsboro;
+
+  &-header {
+    &-sub {
+      @include d-flex(row, space-between, center);
+      width: 720px;
+      height: 32px;
+      margin-bottom: 8px;
+
+      &__head {
+        display: inline;
+      }
+      &__date {
+        &-separator {
+          margin: 0 8px;
+        }
+      }
+    }
+  }
+
+  &__author {
+    font-size: 0.8em;
+    color: black;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .main-content {
+    font-size: 1.1em;
+    margin: 0 16px 6px;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  .shared-chunk {
+    margin: 12px 0 0;
+  }
+  &-actions {
+    padding: 0;
+  }
 }

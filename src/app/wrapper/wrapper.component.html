@@ -1,0 +1,107 @@
+<div class="wrapper">
+  <mat-drawer-container class="wrapper-container">
+    <mat-drawer
+      class="sidebar-container sidebar-container-left"
+      mode="side"
+      opened
+    >
+      <nav class="navbar">
+        <div>
+          <a
+            mat-button
+            [routerLink]="['/']"
+            routerLinkActive="link-selected"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Users icon"
+              >home</mat-icon
+            >
+            <span>Feed</span>
+          </a>
+          <a
+            mat-button
+            [routerLink]="['/users']"
+            routerLinkActive="link-selected"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Users icon"
+              >people</mat-icon
+            >
+            <span>Users</span>
+          </a>
+          <a
+            mat-button
+            [routerLink]="['/users/notifications']"
+            routerLinkActive="link-selected"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Profile icon"
+              >notifications</mat-icon
+            >
+            <span>Notifications</span>
+          </a>
+          <a
+            mat-button
+            [routerLink]="['/compose']"
+            routerLinkActive="link-selected"
+            class="compose-link"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Profile icon"
+              >create</mat-icon
+            >
+            <span>Compose</span>
+          </a>
+        </div>
+        <div>
+          <a
+            mat-button
+            [routerLink]="['/users/me']"
+            routerLinkActive="link-selected"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Profile icon"
+              >account_circle</mat-icon
+            >
+            <span>My Profile</span>
+          </a>
+          <a
+            mat-button
+            [routerLink]="['/portal/logout']"
+            routerLinkActive="link-selected"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Profile icon"
+              >exit_to_app</mat-icon
+            >
+            <span>Logout</span>
+          </a>
+        </div>
+      </nav>
+    </mat-drawer>
+    <mat-drawer-content class="wrapper-content">
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+    <mat-drawer
+      class="sidebar-container sidebar-container-right"
+      mode="side"
+      position="end"
+      opened
+    >
+    </mat-drawer>
+  </mat-drawer-container>
+</div>

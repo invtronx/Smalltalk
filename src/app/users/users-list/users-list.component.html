@@ -4,7 +4,31 @@
   </div>
 
   <div class="users-list">
-    <input [formControl]="userSearch" placeholder="Search users by name" />
+    <p class="input-wrapper">
+      <mat-form-field class="input-form-field">
+        <mat-label>Search</mat-label>
+        <input
+          matInput
+          [formControl]="userSearch"
+          autocomplete="off"
+          class="search"
+          type="search"
+          placeholder="Ex. Ayase Chihaya"
+        />
+        <mat-icon class="search-icon" matPrefix>search</mat-icon>
+        <button
+          mat-button
+          type="button"
+          *ngIf="userSearch.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="userSearch.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
     <app-user-list-generator
       [currentUser]="currentUser"
       [endpoint]="endpoint"

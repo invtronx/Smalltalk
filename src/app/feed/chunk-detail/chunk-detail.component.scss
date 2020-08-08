@@ -1,0 +1,27 @@
+.chunk-comments {
+  h2 {
+    margin: 8px 24px;
+  }
+  &-compose {
+    width: 100%;
+  }
+}
+hr {
+  border: 1px solid gainsboro;
+}
+form {
+  .form-field {
+    margin-bottom: -12px;
+    padding-left: 6px;
+    width: 640px;
+  }
+  .button-td {
+    display: block;
+    padding: 12px;
+    width: 120px;
+  }
+  table {
+    width: 100%;
+    table-layout: auto;
+  }
+}

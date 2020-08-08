@@ -1,0 +1,6 @@
+@mixin d-flex($orientation, $x: flex-start, $y: center) {
+  display: flex;
+  flex-flow: $orientation nowrap;
+  justify-content: $x;
+  align-items: $y;
+}

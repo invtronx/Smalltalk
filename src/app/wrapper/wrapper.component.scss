@@ -1,0 +1,58 @@
+@import "variables";
+@import "mixins";
+
+$content-width: 768px;
+$navbar-y-padding: 64px;
+
+.wrapper {
+  .navbar {
+    display: inline-flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: calc(100% - #{$navbar-y-padding} * 2);
+
+    padding: $navbar-y-padding 48px;
+
+    a {
+      display: block;
+      font-size: 1.5em;
+      width: fit-content;
+      border-radius: 64px;
+
+      margin: 8px 0;
+      padding: 8px 24px;
+
+      &:hover {
+        background-color: $ultra-light-primary-color;
+        color: $primary-color;
+      }
+    }
+
+    .compose-link {
+      background-color: $light-primary-color;
+      color: white;
+      &:hover {
+        background-color: $primary-color;
+        color: white;
+      }
+    }
+
+    &-icon {
+      margin-right: 12px;
+    }
+  }
+  .sidebar-container {
+    width: calc((100% - #{$content-width}) / 2);
+    position: fixed;
+
+    &-left {
+      text-align: right;
+    }
+  }
+  &-content {
+    background-color: #fff;
+  }
+}
+.link-selected {
+  color: $primary-color;
+}

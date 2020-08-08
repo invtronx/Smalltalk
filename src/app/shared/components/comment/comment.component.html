@@ -1,12 +1,30 @@
 <div class="comment">
-  <div class="comment__headline">
-    <a [routerLink]="['/users', comment.author.username]">{{
-      comment.author.name
-    }}</a>
-    <span>{{ comment.createdAt | date: "MMM d, y h:mm a" }}</span>
-  </div>
-  <div class="comment__content">{{ comment.content }}</div>
-  <div class="comment__interactors" *ngIf="canModify">
-    <button (click)="deleteComment()">Delete</button>
-  </div>
+  <mat-card class="card">
+    <mat-card-header class="header">
+      <mat-card-title>
+        <a class="name" [routerLink]="['/users', comment.author.username]">{{
+          comment.author.name
+        }}</a>
+      </mat-card-title>
+      <mat-card-subtitle class="sub">
+        <div>
+          <span>@{{ comment.author.username }}</span>
+          <span class="separator">&#183;</span>
+          <span class="date">{{ formatCommentCreationDate }}</span>
+        </div>
+        <div class="chunk-header-edit" *ngIf="canModify">
+          <button
+            type="button"
+            class="delete-button"
+            mat-button
+            (click)="deleteComment()"
+          >
+            Delete
+          </button>
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content class="content">{{ comment.content }}</mat-card-content>
+  </mat-card>
 </div>

@@ -1,27 +1,54 @@
 <div class="root">
+  <app-backbar [caption]="'Chunk'"></app-backbar>
   <div class="chunk-content">
     <app-chunk [chunk]="chunk" [shortForm]="false"></app-chunk>
   </div>
-  <div class="chunk-comments">
-    <h3>Comments</h3>
-    <p *ngFor="let comment of comments">
-      <app-comment
-        [comment]="comment"
-        [canModify]="currentUser.username === comment.author.username"
-        [chunkSlug]="chunk.slug"
-        (isDeleted)="reloadChunkDetails()"
-      ></app-comment>
-    </p>
-    <p *ngIf="comments.length === 0">There are no comments on this post.</p>
+  <!--
+  <div class="extras">
+    <a [routerLink]="['/chunks', chunk.slug, 'like']">View Liked Users</a>
   </div>
-  <div class="chunk-comment-compose">
-    <form [formGroup]="commentForm" (ngSubmit)="handleCommentForm()">
-      <input
-        formControlName="content"
-        id="commentContent"
-        placeholder="Add your comment"
-      />
-      <button type="submit">Comment</button>
-    </form>
+-->
+  <div class="chunk-comments">
+    <h2>Comments</h2>
+    <div class="chunk-comments-compose">
+      <form
+        class="comment-form"
+        [formGroup]="commentForm"
+        (ngSubmit)="handleCommentForm()"
+      >
+        <table>
+          <tr>
+            <td>
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Write your thoughts on the post</mat-label>
+                <input matInput formControlName="content" id="commentContent" />
+              </mat-form-field>
+            </td>
+            <td class="button-td">
+              <button
+                mat-raised-button
+                color="primary"
+                type="submit"
+                [disabled]="!commentForm.get('content').value"
+              >
+                Comment
+              </button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div>
+      <p *ngFor="let comment of comments">
+        <app-comment
+          [comment]="comment"
+          [canModify]="currentUser.username === comment.author.username"
+          [chunkSlug]="chunk.slug"
+          (isDeleted)="reloadChunkDetails()"
+        ></app-comment>
+      </p>
+      <hr />
+      <p *ngIf="comments.length === 0">There are no comments on this post.</p>
+    </div>
   </div>
 </div>

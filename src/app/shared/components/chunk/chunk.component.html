@@ -1,32 +1,56 @@
-<div class="chunk">
-  <div class="headline">
-    <a
-      class="headline__author-name"
-      [routerLink]="['/users', chunk.author.username]"
-      >{{ chunk.author.name }}</a
-    >
-    <div>
-      <small class="headline__date">{{
-        chunk.createdAt | date: "MMM d, y h:mm a"
-      }}</small
-      >&nbsp;
-      <a [routerLink]="['chunks', chunk.slug]">View</a>
-    </div>
-  </div>
+<div class="wrapper">
+  <mat-card class="chunk">
+    <mat-card-header class="chunk-header">
+      <mat-card-title class="chunk-header__title">
+        <a
+          class="chunk__author"
+          [routerLink]="['/users', chunk.author.username]"
+          >{{ chunk.author.name }}</a
+        >
+      </mat-card-title>
+      <mat-card-subtitle class="chunk-header-sub">
+        <div class="chunk-header-sub__head">
+          <span>@{{ chunk.author.username }}</span>
+          <span class="chunk-header-sub__date-separator">&#183;</span>
+          <span class="chunk-header-sub__date">{{
+            formatChunkCreationDate
+          }}</span>
+        </div>
+        <div class="chunk-header-edit" *ngIf="!shortForm && canModify">
+          <button
+            type="button"
+            mat-button
+            [matMenuTriggerFor]="editMenu"
+            class="editButton"
+          >
+            <mat-icon>more_horiz </mat-icon>
+          </button>
+          <mat-menu #editMenu="matMenu">
+            <button type="button" mat-menu-item (click)="editChunk()">
+              Edit
+            </button>
+            <button type="button" mat-menu-item (click)="deleteChunk()">
+              Delete
+            </button>
+          </mat-menu>
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
 
-  <div class="chunk__modifiers" *ngIf="!shortForm && canModify">
-    <button (click)="editChunk()">Edit</button>
-    <button (click)="deleteChunk()">Delete</button>
-  </div>
+    <mat-card-content>
+      <div class="main-content" [routerLink]="['/chunks', chunk.slug]">
+        {{ chunk.content }}
+      </div>
+      <div *ngIf="chunk.sharedSource" class="shared-chunk">
+        <app-chunk [shortForm]="true" [chunk]="chunk.sharedSource"></app-chunk>
+      </div>
+    </mat-card-content>
 
-  <div class="chunk__body">{{ chunk.content }}</div>
-
-  <div class="chunk__sharedSource" *ngIf="chunk.sharedSource">
-    <app-chunk [shortForm]="true" [chunk]="chunk.sharedSource"></app-chunk>
-  </div>
-
-  <app-chunk-interactors
-    *ngIf="!shortForm"
-    [chunk]="chunk"
-  ></app-chunk-interactors>
+    <mat-card-actions class="chunk-actions" *ngIf="!shortForm">
+      <app-chunk-interactors
+        *ngIf="!shortForm"
+        [chunk]="chunk"
+      ></app-chunk-interactors>
+    </mat-card-actions>
+  </mat-card>
 </div>
