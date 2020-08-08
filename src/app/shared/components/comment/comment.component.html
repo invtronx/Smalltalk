@@ -1,28 +1,35 @@
 <div class="comment">
   <mat-card class="card">
     <mat-card-header class="header">
-      <mat-card-title>
-        <a class="name" [routerLink]="['/users', comment.author.username]">{{
-          comment.author.name
-        }}</a>
-      </mat-card-title>
-      <mat-card-subtitle class="sub">
-        <div>
-          <span>@{{ comment.author.username }}</span>
-          <span class="separator">&#183;</span>
-          <span class="date">{{ formatCommentCreationDate }}</span>
-        </div>
-        <div class="chunk-header-edit" *ngIf="canModify">
-          <button
-            type="button"
-            class="delete-button"
-            mat-button
-            (click)="deleteComment()"
-          >
-            Delete
-          </button>
-        </div>
-      </mat-card-subtitle>
+      <app-avatar
+        mat-card-avatar
+        [link]="comment.author.profilePic"
+      ></app-avatar>
+      <div class="header-wrapper">
+        <mat-card-title class="card-title">
+          <a class="name" [routerLink]="['/users', comment.author.username]">{{
+            comment.author.name
+          }}</a>
+        </mat-card-title>
+        <mat-card-subtitle class="sub">
+          <div class="sub-div">
+            <span class="separator">&#183;</span>
+            <span>@{{ comment.author.username }}</span>
+            <span class="separator">&#183;</span>
+            <span class="date">{{ formatCommentCreationDate }}</span>
+          </div>
+          <div class="chunk-header-edit" *ngIf="canModify">
+            <button
+              type="button"
+              class="delete-button"
+              mat-button
+              (click)="deleteComment()"
+            >
+              Delete
+            </button>
+          </div>
+        </mat-card-subtitle>
+      </div>
     </mat-card-header>
 
     <mat-card-content class="content">{{ comment.content }}</mat-card-content>

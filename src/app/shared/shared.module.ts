@@ -25,6 +25,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { BackbarComponent } from './components/backbar/backbar.component';
+import { AvatarComponent } from './components/avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { BackbarComponent } from './components/backbar/backbar.component';
     UserInteractorComponent,
     NotificationComponent,
     BackbarComponent,
+    AvatarComponent,
   ],
   imports: [
     CommonModule,
@@ -63,6 +65,7 @@ import { BackbarComponent } from './components/backbar/backbar.component';
     HttpClientModule,
     RouterModule,
     UserComponent,
+    AvatarComponent,
     ChunkComponent,
     CommentComponent,
     BackbarComponent,

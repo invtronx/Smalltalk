@@ -6,12 +6,17 @@
   justify-content: space-evenly;
   align-items: center;
 
+  p {
+    margin-bottom: 4px;
+  }
   button {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: lighter;
     background-color: transparent;
     color: black;
-    margin: 0 4px;
+  }
+  .icon {
+    font-size: 1.4em;
   }
   button:hover {
     background: $ultra-light-primary-color;

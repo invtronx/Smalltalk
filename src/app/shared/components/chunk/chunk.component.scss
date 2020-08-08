@@ -4,21 +4,35 @@
 a {
   text-decoration: none;
 }
+.header-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 90%;
+  margin-left: -18px;
+}
 .chunk {
-  padding: 8px 8px 2px;
+  padding: 4px 8px 8px;
   border-radius: 0;
   border-top: 1px solid gainsboro;
 
   &-header {
+    padding: 2px 8px 0;
+    &__title {
+      display: inline-block;
+      margin: auto 0;
+    }
     &-sub {
-      @include d-flex(row, space-between, center);
-      width: 720px;
-      height: 32px;
-      margin-bottom: 8px;
+      display: inline-flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      flex-grow: 1;
+      margin-bottom: 0;
 
       &__head {
-        display: inline;
+        color: $gray;
       }
+
       &__date {
         &-separator {
           margin: 0 8px;
@@ -28,24 +42,31 @@ a {
   }
 
   &__author {
+    margin-left: 8px;
     font-size: 0.8em;
     color: black;
     &:hover {
       text-decoration: underline;
     }
   }
-  .main-content {
-    font-size: 1.1em;
-    margin: 0 16px 6px;
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
-  }
-  .shared-chunk {
-    margin: 12px 0 0;
-  }
+
   &-actions {
     padding: 0;
   }
+}
+.main-content {
+  font-size: 1.1em;
+  margin: 8px 16px 6px;
+  padding-left: 53px;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+.shared-chunk {
+  border-radius: 4px;
+  margin: 12px 0 0;
+}
+.card-content {
+  margin: 2px;
 }

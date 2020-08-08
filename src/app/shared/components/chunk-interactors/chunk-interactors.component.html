@@ -1,7 +1,7 @@
 <div class="interactors">
   <p [class]="likeButtonClasses">
     <button mat-icon-button [class]="likeButtonClasses" (click)="handleLike()">
-      <mat-icon>thumb_up</mat-icon>
+      <mat-icon class="icon">thumb_up</mat-icon>
     </button>
     <span>{{ likeCount }}</span>
   </p>
@@ -11,13 +11,13 @@
       class="interactors__comment"
       (click)="handleComment()"
     >
-      <mat-icon>comment</mat-icon>
+      <mat-icon class="icon">comment</mat-icon>
     </button>
     <span>{{ chunk.commentCount }}</span>
   </p>
   <p>
     <button mat-icon-button class="interactors__share" (click)="handleShare()">
-      <mat-icon>share</mat-icon>
+      <mat-icon class="icon">share</mat-icon>
     </button>
   </p>
 </div>

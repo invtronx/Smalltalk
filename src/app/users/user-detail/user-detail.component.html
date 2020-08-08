@@ -2,6 +2,7 @@
   <app-backbar [caption]="'Details'"></app-backbar>
   <div class="head">
     <div class="essentials">
+      <img [src]="user.profilePic" alt="avatar" class="profile-picture" />
       <h1>{{ user.name }}</h1>
       <p>{{ user.bio }}</p>
       <div class="interactors" *ngIf="currentUser.username !== user.username">

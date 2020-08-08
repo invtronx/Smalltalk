@@ -1,6 +1,7 @@
 <div class="user">
   <mat-card class="card">
     <mat-card-header class="header">
+      <app-avatar mat-card-avatar [link]="user.profilePic"></app-avatar>
       <mat-card-title>
         <a class="name" [routerLink]="['/users', user.username]">
           {{ user.name }}

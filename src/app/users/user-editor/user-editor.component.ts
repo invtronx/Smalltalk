@@ -43,6 +43,7 @@ export class UserEditorComponent implements OnInit {
         ),
         gender: new FormControl(this.currentUser.gender, Validators.required),
         bio: new FormControl(this.currentUser.bio),
+        profilePic: new FormControl(this.currentUser.profilePic),
       });
     });
   }

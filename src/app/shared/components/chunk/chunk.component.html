@@ -1,43 +1,47 @@
 <div class="wrapper">
   <mat-card class="chunk">
     <mat-card-header class="chunk-header">
-      <mat-card-title class="chunk-header__title">
-        <a
-          class="chunk__author"
-          [routerLink]="['/users', chunk.author.username]"
-          >{{ chunk.author.name }}</a
-        >
-      </mat-card-title>
-      <mat-card-subtitle class="chunk-header-sub">
-        <div class="chunk-header-sub__head">
-          <span>@{{ chunk.author.username }}</span>
-          <span class="chunk-header-sub__date-separator">&#183;</span>
-          <span class="chunk-header-sub__date">{{
-            formatChunkCreationDate
-          }}</span>
-        </div>
-        <div class="chunk-header-edit" *ngIf="!shortForm && canModify">
-          <button
-            type="button"
-            mat-button
-            [matMenuTriggerFor]="editMenu"
-            class="editButton"
+      <app-avatar mat-card-avatar [link]="chunk.author.profilePic"></app-avatar>
+      <div class="header-wrapper">
+        <mat-card-title class="chunk-header__title">
+          <a
+            class="chunk__author"
+            [routerLink]="['/users', chunk.author.username]"
+            >{{ chunk.author.name }}</a
           >
-            <mat-icon>more_horiz </mat-icon>
-          </button>
-          <mat-menu #editMenu="matMenu">
-            <button type="button" mat-menu-item (click)="editChunk()">
-              Edit
+        </mat-card-title>
+        <mat-card-subtitle class="chunk-header-sub">
+          <div class="chunk-header-sub__head">
+            <span class="chunk-header-sub__date-separator">&#183;</span>
+            <span>@{{ chunk.author.username }}</span>
+            <span class="chunk-header-sub__date-separator">&#183;</span>
+            <span class="chunk-header-sub__date">{{
+              formatChunkCreationDate
+            }}</span>
+          </div>
+          <div class="chunk-header-edit" *ngIf="!shortForm && canModify">
+            <button
+              type="button"
+              mat-button
+              [matMenuTriggerFor]="editMenu"
+              class="editButton"
+            >
+              <mat-icon>more_horiz </mat-icon>
             </button>
-            <button type="button" mat-menu-item (click)="deleteChunk()">
-              Delete
-            </button>
-          </mat-menu>
-        </div>
-      </mat-card-subtitle>
+            <mat-menu #editMenu="matMenu">
+              <button type="button" mat-menu-item (click)="editChunk()">
+                Edit
+              </button>
+              <button type="button" mat-menu-item (click)="deleteChunk()">
+                Delete
+              </button>
+            </mat-menu>
+          </div>
+        </mat-card-subtitle>
+      </div>
     </mat-card-header>
 
-    <mat-card-content>
+    <mat-card-content class="card-content">
       <div class="main-content" [routerLink]="['/chunks', chunk.slug]">
         {{ chunk.content }}
       </div>

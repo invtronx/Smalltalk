@@ -10,6 +10,11 @@ a {
   border-top: 1px solid gainsboro;
 
   &-header {
+    margin-left: 16px;
+
+    .header-wrapper {
+      margin-left: -6px;
+    }
     &-sub {
       @include d-flex(row, space-between, center);
       width: 720px;

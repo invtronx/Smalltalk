@@ -25,9 +25,9 @@ export class NotificationComponent {
     const now: any = new Date();
     const secondsElapsed: number = (now - dateObject) / 1000;
 
-    const daysElapsed: number = Math.floor(secondsElapsed / 86400);
-    const hoursElapsed: number = Math.round(secondsElapsed / 3600);
     const minutesElapsed: number = Math.round(secondsElapsed / 60);
+    const hoursElapsed: number = Math.round(minutesElapsed / 60);
+    const daysElapsed: number = Math.floor(hoursElapsed / 24);
     const monthsElapsed: number = Math.round(daysElapsed / 30);
 
     if (monthsElapsed > 0) {

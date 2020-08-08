@@ -48,7 +48,9 @@
         ></app-comment>
       </p>
       <hr />
-      <p *ngIf="comments.length === 0">There are no comments on this post.</p>
+      <p class="no-comment-note" *ngIf="comments.length === 0">
+        There are no comments on this post.
+      </p>
     </div>
   </div>
 </div>

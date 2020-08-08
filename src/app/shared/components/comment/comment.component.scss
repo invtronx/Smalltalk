@@ -1,3 +1,5 @@
+@import "variables";
+
 .comment {
   .card {
     box-shadow: none;
@@ -5,26 +7,46 @@
     border-top: 1px solid gainsboro;
     padding: 8px 8px 2px;
   }
+  .header {
+    padding: 2px 8px 0;
+  }
+  .header-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 90%;
+    margin-left: -10px;
+  }
+  .card-title {
+    display: inline-block;
+  }
   .name {
     font-size: 0.8em;
     text-decoration: none;
     color: black;
   }
   .sub {
-    display: flex;
+    display: inline-flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    width: 720px;
-    height: 32px;
-    margin: 0;
+    align-items: center;
+    flex-grow: 1;
+    padding-bottom: 6px;
+    margin-bottom: 0;
+  }
+  .sub-div {
+    color: $gray;
   }
   .separator {
     margin: 0 8px;
   }
-  .delete-button {
-    bottom: 16px;
-  }
   .content {
-    margin: 0 16px;
+    font-size: 1.1em;
+    margin: 0 16px 0;
+    padding-left: 53px;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 }

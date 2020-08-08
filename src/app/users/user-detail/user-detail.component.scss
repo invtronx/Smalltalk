@@ -1,3 +1,5 @@
+@import "variables";
+
 .essentials {
   display: block;
   text-align: center;
@@ -37,4 +39,11 @@
 }
 .modifiers {
   margin-left: 24px;
+}
+.profile-picture {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 4px;
 }

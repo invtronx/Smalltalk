@@ -1,4 +1,5 @@
 <div class="wrapper">
+  <app-backbar [caption]="'Edit'"></app-backbar>
   <h2>Edit my information</h2>
   <form
     class="form"
@@ -36,11 +37,17 @@
     <div>
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Gender</mat-label>
-        <mat-select type="select" formControlName="gender" id="gender">
+        <mat-select type="select" formControlName="gender">
           <mat-option value="Male">Male</mat-option>
           <mat-option value="Female">Female</mat-option>
           <mat-option value="Unspecified">Choose not to specify</mat-option>
         </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Link to Profile Picture</mat-label>
+        <input formControlName="profilePic" matInput />
       </mat-form-field>
     </div>
     <div>
