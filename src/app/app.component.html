@@ -1,3 +1,10 @@
 <div class="root">
+  <div class="progress-bar-wrapper" *ngIf="isLoading$ | async">
+    <mat-progress-bar
+      mode="indeterminate"
+      color="primary"
+      [ngClass]="{ '_mat-animation-noopable': isLoading$.value }"
+    ></mat-progress-bar>
+  </div>
   <router-outlet></router-outlet>
 </div>

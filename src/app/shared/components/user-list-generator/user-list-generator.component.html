@@ -14,6 +14,10 @@
     </div>
   </div>
 
+  <div class="spinner-wrapper" *ngIf="isLoading$ | async">
+    <p><mat-spinner class="spinner" [diameter]="48"></mat-spinner></p>
+  </div>
+
   <div class="users-list__footer" *ngIf="usersListExhausted$ | async">
     Users exhausted.
   </div>

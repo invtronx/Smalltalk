@@ -7,6 +7,10 @@
     ></app-chunk>
   </div>
 
+  <div class="spinner-wrapper" *ngIf="isLoading$ | async">
+    <p><mat-spinner class="spinner" [diameter]="48"></mat-spinner></p>
+  </div>
+
   <div class="feed__footer" *ngIf="feedExhausted$ | async">
     Feed or Search Results Exhausted.
   </div>

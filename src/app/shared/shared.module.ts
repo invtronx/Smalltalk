@@ -29,6 +29,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LayoutModule } from '@angular/cdk/layout';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatDividerModule,
     MatTabsModule,
     LayoutModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     CommonModule,
@@ -94,6 +98,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatDividerModule,
     MatTabsModule,
     LayoutModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class SharedModule {}

@@ -7,5 +7,9 @@
     >
       <app-notification [notification]="notification"></app-notification>
     </div>
+
+    <div class="spinner-wrapper" *ngIf="isLoading$ | async">
+      <p><mat-spinner class="spinner" [diameter]="48"></mat-spinner></p>
+    </div>
   </div>
 </div>

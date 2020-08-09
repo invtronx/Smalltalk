@@ -15,11 +15,15 @@ export class NotificationsComponent implements OnInit {
   >(null);
   notifications$: Observable<Notification> = this.notifications.asObservable();
 
+  isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
+    this.isLoading$.next(true);
     this.api.get('notifications').subscribe((data) => {
       this.notifications.next(data.notifications);
+      this.isLoading$.next(false);
     });
   }
 }

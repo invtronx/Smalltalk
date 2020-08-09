@@ -30,6 +30,8 @@ export class FeedGeneratorComponent implements OnInit, OnChanges {
   feed$: Observable<Chunk[]> = this.feed.asObservable();
   feedExhausted$: Observable<boolean> = this.feedExhausted.asObservable();
 
+  isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   bufferCount: number = 20;
   offset: number = 0;
 
@@ -73,6 +75,7 @@ export class FeedGeneratorComponent implements OnInit, OnChanges {
     if (this.feedExhausted.value && !reset) {
       return;
     }
+    this.isLoading$.next(true);
     this.offset = reset ? 0 : this.offset;
     this.api.get(this.endpoint, this.httpOptions).subscribe({
       next: (data) => {
@@ -82,6 +85,7 @@ export class FeedGeneratorComponent implements OnInit, OnChanges {
         this.offset = this.offset + this.bufferCount;
         this.setHttpLimitAndOffset();
         this.feedExhausted.next(this.offset >= data.chunkCount);
+        this.isLoading$.next(false);
       },
       error: console.log,
     });
