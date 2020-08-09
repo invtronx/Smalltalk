@@ -180,7 +180,7 @@
               signupForm.get('name').hasError('maxLength')
             "
           >
-            Names should be between 3 and 16 characters.
+            Names should be between 3 and 48 characters.
           </mat-error>
         </mat-form-field>
       </p>
@@ -223,13 +223,8 @@
           <mat-error *ngIf="signupForm.get('password').hasError('required')">
             Password is <strong>required</strong>
           </mat-error>
-          <mat-error
-            *ngIf="
-              signupForm.get('password').hasError('minLength') ||
-              signupForm.get('password').hasError('maxLength')
-            "
-          >
-            Passwords should be between 7 and 16 characters
+          <mat-error *ngIf="signupForm.get('password').hasError('minLength')">
+            Passwords should be at least 7 characters.
           </mat-error>
         </mat-form-field>
       </p>

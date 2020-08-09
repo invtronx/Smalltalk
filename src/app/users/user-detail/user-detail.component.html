@@ -4,7 +4,7 @@
     <div class="essentials">
       <img [src]="user.profilePic" alt="avatar" class="profile-picture" />
       <h1>{{ user.name }}</h1>
-      <p>{{ user.bio }}</p>
+      <p class="bio">{{ user.bio }}</p>
       <div class="interactors" *ngIf="currentUser.username !== user.username">
         <app-user-interactor [user]="user"></app-user-interactor>
       </div>
@@ -60,7 +60,9 @@
     </div>
 
     <div class="modifiers" *ngIf="canModify">
-      <a mat-button [routerLink]="['/users/me/edit']">Edit my information</a>
+      <a mat-raised-button color="warn" [routerLink]="['/users/me/edit']"
+        >Edit my information</a
+      >
     </div>
   </div>
 
