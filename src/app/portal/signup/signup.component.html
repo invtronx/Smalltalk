@@ -6,7 +6,6 @@
   <form
     [formGroup]="signupForm"
     (ngSubmit)="handleSignUpForm()"
-    autocomplete="off"
     class="signup-form"
   >
     <div *ngIf="!(isSmallScreen$ | async)">

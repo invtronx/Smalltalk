@@ -3,11 +3,6 @@
   <div class="chunk-content">
     <app-chunk [chunk]="chunk" [shortForm]="false"></app-chunk>
   </div>
-  <!--
-  <div class="extras">
-    <a [routerLink]="['/chunks', chunk.slug, 'like']">View Liked Users</a>
-  </div>
--->
   <div class="chunk-comments">
     <h2>Comments</h2>
     <div class="chunk-comments-compose">
@@ -19,7 +14,12 @@
         <div class="comment-form-div">
           <mat-form-field class="form-field" appearance="outline">
             <mat-label>Write your thoughts on the post</mat-label>
-            <input matInput formControlName="content" id="commentContent" />
+            <input
+              matInput
+              formControlName="content"
+              id="commentContent"
+              autocomplete="off"
+            />
           </mat-form-field>
           <button
             mat-raised-button
