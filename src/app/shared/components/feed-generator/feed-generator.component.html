@@ -10,7 +10,4 @@
   <div class="feed__footer" *ngIf="feedExhausted$ | async">
     Feed or Search Results Exhausted.
   </div>
-  <button (click)="bufferFeed()" *ngIf="!(feedExhausted$ | async)">
-    Next
-  </button>
 </div>

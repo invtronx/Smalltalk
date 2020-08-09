@@ -13,7 +13,4 @@
   <div class="users-list__footer" *ngIf="usersListExhausted$ | async">
     Users exhausted.
   </div>
-  <button (click)="bufferUsersList()" *ngIf="!(usersListExhausted$ | async)">
-    Next
-  </button>
 </div>

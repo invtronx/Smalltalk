@@ -5,6 +5,7 @@ import {
   OnChanges,
   SimpleChanges,
   SimpleChange,
+  HostListener,
 } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -54,6 +55,17 @@ export class UserListGeneratorComponent implements OnInit, OnChanges {
       : new HttpParams();
     this.setHttpLimitAndOffset();
     this.bufferUsersList();
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    if (
+      document.body.scrollHeight - (window.innerHeight + window.scrollY) <=
+        128 &&
+      !this.usersListExhausted.value
+    ) {
+      this.bufferUsersList();
+    }
   }
 
   setHttpLimitAndOffset(): void {

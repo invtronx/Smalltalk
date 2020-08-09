@@ -12,6 +12,8 @@ import { FeedGeneratorComponent } from './components/feed-generator/feed-generat
 import { UserListGeneratorComponent } from './components/user-list-generator/user-list-generator.component';
 import { UserInteractorComponent } from './components/user-interactor/user-interactor.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { BackbarComponent } from './components/backbar/backbar.component';
+import { AvatarComponent } from './components/avatar/avatar.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -24,8 +26,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import { BackbarComponent } from './components/backbar/backbar.component';
-import { AvatarComponent } from './components/avatar/avatar.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { AvatarComponent } from './components/avatar/avatar.component';
     MatSidenavModule,
     MatCardModule,
     MatMenuModule,
+    MatDividerModule,
   ],
   exports: [
     CommonModule,
@@ -85,6 +87,7 @@ import { AvatarComponent } from './components/avatar/avatar.component';
     MatSidenavModule,
     MatCardModule,
     MatMenuModule,
+    MatDividerModule,
   ],
 })
 export class SharedModule {}

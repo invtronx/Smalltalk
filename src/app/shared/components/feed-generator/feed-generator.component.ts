@@ -5,6 +5,7 @@ import {
   OnChanges,
   SimpleChanges,
   SimpleChange,
+  HostListener,
 } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -49,6 +50,17 @@ export class FeedGeneratorComponent implements OnInit, OnChanges {
       : new HttpParams();
     this.setHttpLimitAndOffset();
     this.bufferFeed();
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    if (
+      document.body.scrollHeight - (window.innerHeight + window.scrollY) <=
+        128 &&
+      !this.feedExhausted.value
+    ) {
+      this.bufferFeed();
+    }
   }
 
   setHttpLimitAndOffset(): void {

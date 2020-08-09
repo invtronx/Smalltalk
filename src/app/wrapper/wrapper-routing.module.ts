@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { WrapperComponent } from './wrapper.component';
 import { AuthGuard } from '../core/services/auth.guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,8 @@ const routes: Routes = [
           import('../users/users.module').then((m) => m.UsersModule),
         canLoad: [AuthGuard],
       },
+      { path: 'about', component: AboutComponent },
+      { path: '**', component: PageNotFoundComponent },
     ],
   },
 ];

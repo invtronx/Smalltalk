@@ -56,3 +56,31 @@ $navbar-y-padding: 64px;
 .link-selected {
   color: $primary-color;
 }
+.logo {
+  width: 96px;
+}
+.right-wrapper {
+  display: inline-block;
+  text-align: center;
+
+  margin: 128px 64px 16px;
+
+  h1 {
+    font-size: 2.4em;
+    color: $primary-color;
+    font-weight: bolder;
+    margin-top: 12px;
+  }
+  p {
+    font-weight: bold;
+    margin-top: 8px;
+  }
+  a {
+    color: $primary-color;
+    font-size: 1.2em;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

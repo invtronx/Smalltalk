@@ -1,0 +1,57 @@
+@import "variables";
+
+.root {
+  padding: 32px 16px;
+  a {
+    text-decoration: none;
+    color: $primary-color;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  div {
+    margin: 16px 0;
+    font-size: 1.2em;
+    line-height: 1.4;
+  }
+}
+.heading {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 16px;
+
+  .logo {
+    width: 64px;
+  }
+  h1 {
+    font-size: 2.4em;
+    font-weight: bolder;
+    margin: 0 12px;
+    color: $primary-color;
+  }
+}
+.facts {
+  ul {
+    padding-left: 24px;
+  }
+  li {
+    margin: 8px 0;
+  }
+}
+.icon {
+  position: relative;
+  top: 7px;
+  margin-right: 2px;
+}
+.me {
+  .me-img {
+    width: 49px;
+    height: 49px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  p {
+    margin: 0;
+    font-size: 0.9em;
+  }
+}
