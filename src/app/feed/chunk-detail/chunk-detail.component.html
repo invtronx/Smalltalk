@@ -16,26 +16,20 @@
         [formGroup]="commentForm"
         (ngSubmit)="handleCommentForm()"
       >
-        <table>
-          <tr>
-            <td>
-              <mat-form-field class="form-field" appearance="outline">
-                <mat-label>Write your thoughts on the post</mat-label>
-                <input matInput formControlName="content" id="commentContent" />
-              </mat-form-field>
-            </td>
-            <td class="button-td">
-              <button
-                mat-raised-button
-                color="primary"
-                type="submit"
-                [disabled]="!commentForm.get('content').value"
-              >
-                Comment
-              </button>
-            </td>
-          </tr>
-        </table>
+        <div class="comment-form-div">
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Write your thoughts on the post</mat-label>
+            <input matInput formControlName="content" id="commentContent" />
+          </mat-form-field>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="!commentForm.get('content').value"
+          >
+            Comment
+          </button>
+        </div>
       </form>
     </div>
     <div>

@@ -27,6 +27,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTabsModule } from '@angular/material/tabs';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatCardModule,
     MatMenuModule,
     MatDividerModule,
+    MatTabsModule,
+    LayoutModule,
   ],
   exports: [
     CommonModule,
@@ -88,6 +92,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatCardModule,
     MatMenuModule,
     MatDividerModule,
+    MatTabsModule,
+    LayoutModule,
   ],
 })
 export class SharedModule {}

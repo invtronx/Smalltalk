@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { JwtService } from 'src/app/core/services/jwt.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { JwtService } from 'src/app/core/services/jwt.service';
 
 @Component({
   selector: 'app-logout',
@@ -8,10 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./logout.component.scss'],
 })
 export class LogoutComponent {
-  constructor(private jwt: JwtService, private router: Router) {}
+  constructor(
+    private jwt: JwtService,
+    private router: Router,
+    private loc: Location
+  ) {}
 
   handleLogout(): void {
     this.jwt.clearToken();
     this.router.navigate(['/portal/login']);
+  }
+
+  back(): void {
+    this.loc.back();
   }
 }

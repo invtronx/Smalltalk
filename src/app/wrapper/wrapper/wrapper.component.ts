@@ -1,17 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-
-import { User } from 'src/app/core/models/user';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss'],
+  selector: 'app-wrapper',
+  templateUrl: './wrapper.component.html',
+  styleUrls: ['./wrapper.component.scss'],
 })
-export class UserComponent implements OnInit {
-  @Input() user: User;
-
+export class WrapperComponent implements OnInit {
   isSmallScreen$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
 
   constructor(private breakpointObserver: BreakpointObserver) {}

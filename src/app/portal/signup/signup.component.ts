@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -6,6 +6,8 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 import { AuthService } from 'src/app/core/services/auth.service';
 
@@ -14,7 +16,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit {
   signupForm = new FormGroup(
     {
       name: new FormControl(null, [
@@ -41,7 +43,21 @@ export class SignupComponent {
   signupDisabled: boolean = false;
   hidePassword: boolean = true;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  isSmallScreen$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
+
+  constructor(
+    private auth: AuthService,
+    private breakpointObserver: BreakpointObserver,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe('(max-width: 1320px)')
+      .subscribe((state: BreakpointState) => {
+        this.isSmallScreen$.next(state.matches);
+      });
+  }
 
   unmatchedPasswordsValidator(control: FormGroup): ValidationErrors | null {
     const password = control.get('password');

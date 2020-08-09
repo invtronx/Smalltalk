@@ -84,3 +84,17 @@ $navbar-y-padding: 64px;
     }
   }
 }
+.tab-nav {
+  .tab-navbar {
+    a {
+      padding: 0;
+    }
+  }
+  .navbar-icon {
+    margin: 0;
+  }
+  .tab-active {
+    border-bottom: 2px solid black;
+    border-radius: 0;
+  }
+}

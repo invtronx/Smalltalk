@@ -42,3 +42,15 @@
     background-color: transparent;
   }
 }
+@media only screen and (max-width: 1320px) {
+  .signup-form {
+    padding: 36px 16px;
+  }
+  .signup-header {
+    margin: inherit 0;
+    text-align: center;
+  }
+  .small-signup-form__elem {
+    min-width: 240px;
+  }
+}

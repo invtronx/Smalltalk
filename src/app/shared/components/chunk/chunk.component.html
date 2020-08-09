@@ -12,8 +12,14 @@
         </mat-card-title>
         <mat-card-subtitle class="chunk-header-sub">
           <div class="chunk-header-sub__head">
-            <span class="chunk-header-sub__date-separator">&#183;</span>
-            <span>@{{ chunk.author.username }}</span>
+            <span
+              *ngIf="!(isSmallScreen$ | async)"
+              class="chunk-header-sub__date-separator"
+              >&#183;</span
+            >
+            <span *ngIf="!(isSmallScreen$ | async)"
+              >@{{ chunk.author.username }}</span
+            >
             <span class="chunk-header-sub__date-separator">&#183;</span>
             <span class="chunk-header-sub__date">{{
               formatChunkCreationDate

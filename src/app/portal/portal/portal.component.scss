@@ -6,9 +6,41 @@
   height: 100vh;
   background: linear-gradient(135deg, $primary-color, $light-primary-color);
 
+  .logo {
+    position: fixed;
+    top: 23vh;
+    left: 25vw;
+  }
+
   &-outlet {
     position: fixed;
-    top: 20vh;
+    top: 16vh;
     left: 52vw;
+  }
+}
+
+@media only screen and (max-width: 1320px) {
+  .portal {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: none;
+    background-color: $primary-color;
+
+    .logo,
+    &-outlet {
+      position: initial;
+      width: 100%;
+      text-align: center;
+      padding-bottom: 32px;
+    }
+    .logo {
+      margin-top: 48px;
+    }
+    &-outlet {
+      background-color: $primary-color;
+    }
   }
 }

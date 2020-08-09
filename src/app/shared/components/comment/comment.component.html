@@ -13,8 +13,12 @@
         </mat-card-title>
         <mat-card-subtitle class="sub">
           <div class="sub-div">
-            <span class="separator">&#183;</span>
-            <span>@{{ comment.author.username }}</span>
+            <span *ngIf="!(isSmallScreen$ | async)" class="separator"
+              >&#183;</span
+            >
+            <span *ngIf="!(isSmallScreen$ | async)"
+              >@{{ comment.author.username }}</span
+            >
             <span class="separator">&#183;</span>
             <span class="date">{{ formatCommentCreationDate }}</span>
           </div>

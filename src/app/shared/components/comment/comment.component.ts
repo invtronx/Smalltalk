@@ -1,4 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 import { Comment } from 'src/app/core/models/comment';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -8,14 +10,27 @@ import { ApiService } from 'src/app/core/services/api.service';
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.scss'],
 })
-export class CommentComponent {
+export class CommentComponent implements OnInit {
   @Input() comment: Comment;
   @Input() chunkSlug: string;
   @Input() canModify: boolean;
 
   @Output() isDeleted = new EventEmitter<boolean>();
 
-  constructor(private api: ApiService) {}
+  isSmallScreen$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
+
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private api: ApiService
+  ) {}
+
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe('(max-width: 1320px)')
+      .subscribe((state: BreakpointState) => {
+        this.isSmallScreen$.next(state.matches);
+      });
+  }
 
   deleteComment(): void {
     this.api

@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 import { Chunk } from 'src/app/core/models/chunk';
 import { ApiService } from 'src/app/core/services/api.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chunk',
@@ -14,9 +16,21 @@ export class ChunkComponent implements OnInit {
   @Input() shortForm: boolean;
   @Input() canModify: boolean;
 
-  constructor(private api: ApiService, private router: Router) {}
+  isSmallScreen$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
 
-  ngOnInit(): void {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private api: ApiService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe('(max-width: 1320px)')
+      .subscribe((state: BreakpointState) => {
+        this.isSmallScreen$.next(state.matches);
+      });
+  }
 
   deleteChunk(): void {
     this.api

@@ -13,16 +13,19 @@ form {
   .form-field {
     margin-bottom: -12px;
     padding-left: 6px;
-    width: 640px;
+    flex-grow: 1;
   }
-  .button-td {
-    display: block;
-    padding: 12px;
-    width: 120px;
-  }
-  table {
+  .comment-form-div {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
     width: 100%;
-    table-layout: auto;
+
+    button {
+      margin: 0 8px;
+      margin-bottom: 8px;
+      height: 3em;
+    }
   }
 }
 .no-comment-note {

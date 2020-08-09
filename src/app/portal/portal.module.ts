@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { PortalComponent } from './portal/portal.component';
 import { LogoutComponent } from './logout/logout.component';
+import { LogoComponent } from './logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { LogoutComponent } from './logout/logout.component';
     SignupComponent,
     PortalComponent,
     LogoutComponent,
+    LogoComponent,
   ],
   imports: [CommonModule, SharedModule, CoreModule, PortalRoutingModule],
   exports: [PortalComponent],

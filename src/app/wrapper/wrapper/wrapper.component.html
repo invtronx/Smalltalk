@@ -5,7 +5,7 @@
       mode="side"
       opened
     >
-      <nav class="navbar">
+      <nav class="navbar" *ngIf="!(isSmallScreen$ | async)">
         <div>
           <a
             mat-button
@@ -94,6 +94,91 @@
       </nav>
     </mat-drawer>
     <mat-drawer-content class="wrapper-content">
+      <div class="tab-nav" *ngIf="isSmallScreen$ | async">
+        <nav mat-tab-nav-bar mat-stretch-tabs class="tab-navbar">
+          <a
+            mat-tab-link
+            mat-button
+            [routerLink]="['/']"
+            routerLinkActive="tab-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Users icon"
+              >home</mat-icon
+            >
+          </a>
+          <a
+            mat-tab-link
+            mat-button
+            [routerLink]="['/users']"
+            routerLinkActive="tab-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Users icon"
+              >people</mat-icon
+            >
+          </a>
+          <a
+            mat-tab-link
+            mat-button
+            [routerLink]="['/users/notifications']"
+            routerLinkActive="tab-active"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Profile icon"
+              >notifications</mat-icon
+            >
+          </a>
+          <a
+            mat-tab-link
+            mat-button
+            [routerLink]="['/compose']"
+            routerLinkActive="tab-active"
+            class="compose-link"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Profile icon"
+              >create</mat-icon
+            >
+          </a>
+          <a
+            mat-tab-link
+            mat-button
+            [routerLink]="['/users/me']"
+            routerLinkActive="tab-active"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Profile icon"
+              >account_circle</mat-icon
+            >
+          </a>
+          <a
+            mat-tab-link
+            mat-button
+            [routerLink]="['/portal/logout']"
+            routerLinkActive="tab-active"
+          >
+            <mat-icon
+              class="navbar-icon"
+              aria-hidden="false"
+              aria-label="Profile icon"
+              >exit_to_app</mat-icon
+            >
+          </a>
+        </nav>
+      </div>
       <router-outlet></router-outlet>
     </mat-drawer-content>
     <mat-drawer
@@ -102,7 +187,7 @@
       position="end"
       opened
     >
-      <div class="right-wrapper">
+      <div class="right-wrapper" *ngIf="!(isSmallScreen$ | async)">
         <img src="assets/smallTalkLogo.png" class="logo" alt="SmallTalk Logo" />
         <h1>Smalltalk</h1>
         <mat-divider></mat-divider>
