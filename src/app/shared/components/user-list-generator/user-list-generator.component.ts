@@ -29,10 +29,12 @@ export class UserListGeneratorComponent implements OnInit, OnChanges {
   usersListExhausted: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
+  userCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   usersList$: Observable<User[]> = this.usersList.asObservable();
   usersListExhausted$: Observable<
     boolean
   > = this.usersListExhausted.asObservable();
+  userCount$: Observable<number> = this.userCount.asObservable();
 
   bufferCount: number = 20;
   offset: number = 0;
@@ -84,6 +86,7 @@ export class UserListGeneratorComponent implements OnInit, OnChanges {
         this.usersList.next(
           reset ? data.users : this.usersList.value.concat(data.users)
         );
+        this.userCount.next(data.userCount);
         this.offset = this.offset + this.bufferCount;
         this.setHttpLimitAndOffset();
         this.usersListExhausted.next(this.offset >= data.userCount);

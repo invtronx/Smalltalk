@@ -28,7 +28,7 @@ export class UserEditorComponent implements OnInit {
         name: new FormControl(this.currentUser.name, [
           Validators.required,
           Validators.minLength(3),
-          Validators.maxLength(16),
+          Validators.maxLength(48),
         ]),
         email: new FormControl(
           {

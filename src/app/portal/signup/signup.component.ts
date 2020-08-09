@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
       name: new FormControl(null, [
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(16),
+        Validators.maxLength(48),
       ]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [

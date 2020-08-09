@@ -47,9 +47,10 @@ export class ChunkDetailComponent implements OnInit {
         observe: 'response',
       })
       .subscribe({
-        next: () => console.log('Commented'),
+        next: () => {
+          console.log('Commented'), this.reloadChunkDetails();
+        },
         error: () => console.log('Unable to comment'),
       });
-    this.reloadChunkDetails();
   }
 }

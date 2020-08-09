@@ -1,4 +1,8 @@
 <div class="generated-users-list">
+  <p class="user-count">
+    {{ userCount$ | async }} user(s)
+    <span *ngIf="ignoreSelf"> including yourself</span>
+  </p>
   <div class="users-list">
     <div class="users-list__user" *ngFor="let user of usersList$ | async">
       <div

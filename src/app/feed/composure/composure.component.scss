@@ -76,3 +76,9 @@ a {
 .compose-button {
   margin: 0 16px;
 }
+@media only screen and (max-width: 1320px) {
+  .compose {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
