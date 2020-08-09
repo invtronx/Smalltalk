@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "smalltalk-54088": {
+      "hosting": {
+        "chunk": [
+          "smalltalk-54088"
+        ]
+      }
+    }
+  }
+}
